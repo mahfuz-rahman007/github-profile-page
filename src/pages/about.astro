@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import { profile } from '../data/profile';
+---
+
+<Layout title="About — Mahfuzur Rahman" description={profile.headline}>
+  <Nav />
+  <main class="pb-18 pt-8 md:pb-28 md:pt-12">
+    <div class="mx-auto w-[min(1180px,calc(100%-1.5rem))] space-y-8 md:w-[min(1180px,calc(100%-2rem))]">
+      <PageHero title="About Mahfuzur Rahman" description={profile.headline} eyebrow="Profile" />
+
+      <div class="grid gap-5 md:grid-cols-[1.05fr_0.95fr]">
+        <section class="panel rounded-[32px] p-6 md:p-8">
+          <h2 class="text-2xl font-semibold text-white">How I work</h2>
+          <p class="mt-4 text-base leading-8 text-brand-muted">
+            I like product work where software has to survive real usage, not just look good in previews. My strongest lane is Laravel-centered product engineering with enough frontend and deployment depth to own the whole path from implementation to release.
+          </p>
+          <p class="mt-4 text-base leading-8 text-brand-muted">
+            I care about performance, maintainability, delivery speed, and practical design quality. I enjoy backend-heavy systems, but I also like making interfaces feel cleaner, faster, and more intentional.
+          </p>
+          <div class="mt-8 grid gap-4 sm:grid-cols-2">
+            {profile.strengths.map((strength) => (
+              <div class="rounded-[24px] border border-white/10 bg-white/5 p-4 text-sm leading-7 text-white/82">{strength}</div>
+            ))}
+          </div>
+        </section>
+
+        <section class="panel rounded-[32px] p-6 md:p-8">
+          <h2 class="text-2xl font-semibold text-white">Connect</h2>
+          <p class="mt-4 text-base leading-8 text-brand-muted">The fastest way to reach me is email, but these links are the public footprint behind the portfolio.</p>
+          <div class="mt-6">
+            <SocialLinks links={profile.socialLinks} />
+          </div>
+          <div class="mt-8 rounded-[26px] border border-white/10 bg-white/5 p-5">
+            <p class="eyebrow mb-3 text-xs font-semibold text-brand-gold/80">Education</p>
+            <p class="text-lg font-semibold text-white">{profile.education.degree}</p>
+            <p class="mt-2 text-sm text-brand-muted">{profile.education.institution} · {profile.education.location}</p>
+          </div>
+        </section>
+      </div>
+
+      <section class="panel rounded-[32px] p-6 md:p-8">
+        <h2 class="text-2xl font-semibold text-white">Experience timeline</h2>
+        <div class="mt-8 space-y-6">
+          {profile.experience.map((item) => (
+            <article class="rounded-[28px] border border-white/10 bg-white/5 p-5 md:p-6">
+              <div class="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <h3 class="text-xl font-semibold text-white">{item.role} · {item.company}</h3>
+                  <p class="mt-1 text-sm text-brand-muted">{item.period} · {item.location}</p>
+                </div>
+              </div>
+              <p class="mt-4 text-sm leading-7 text-brand-muted">{item.summary}</p>
+              <ul class="mt-5 space-y-3 text-sm leading-7 text-white/82">
+                {item.bullets.map((bullet) => (
+                  <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-brand-aqua"></span><span>{bullet}</span></li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+    </div>
+  </main>
+  <Footer />
+</Layout>

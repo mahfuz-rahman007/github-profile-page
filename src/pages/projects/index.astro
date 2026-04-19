@@ -1,0 +1,23 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import PageHero from '../../components/PageHero.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { projects } from '../../data/projects';
+---
+
+<Layout title="Projects — Mahfuzur Rahman" description="Project catalog for Mahfuzur Rahman.">
+  <Nav />
+  <main class="pb-18 pt-8 md:pb-28 md:pt-12">
+    <div class="mx-auto w-[min(1180px,calc(100%-1.5rem))] space-y-8 md:w-[min(1180px,calc(100%-2rem))]">
+      <PageHero eyebrow="Projects" title="Selected work across ERP, media, commerce, and productized platforms." description="A project catalog built around real engineering work: architecture, performance, product delivery, and systems that need to survive actual usage." />
+      <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        {projects.map((project) => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

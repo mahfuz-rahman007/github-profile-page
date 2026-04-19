@@ -1,0 +1,15 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-white/10 bg-slate-950/75">
+  <div class="mx-auto flex w-[min(1180px,calc(100%-1.5rem))] flex-col gap-4 py-8 text-sm text-white/55 md:w-[min(1180px,calc(100%-2rem))] md:flex-row md:items-center md:justify-between">
+    <p>© {year} Mahfuzur Rahman. Built with Astro, shipped with restraint.</p>
+    <div class="flex flex-wrap gap-4">
+      <a href="/projects" class="transition hover:text-white">Projects</a>
+      <a href="/writing" class="transition hover:text-white">Writing</a>
+      <a href="/playground" class="transition hover:text-white">Playground</a>
+      <a href="/contact" class="transition hover:text-white">Contact</a>
+    </div>
+  </div>
+</footer>

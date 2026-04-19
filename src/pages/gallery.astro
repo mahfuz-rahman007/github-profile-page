@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import GalleryCard from '../components/GalleryCard.astro';
+import { galleryImages } from '../data/gallery';
+---
+
+<Layout title="Gallery — Mahfuzur Rahman" description="Curated gallery for the portfolio atmosphere and future project imagery.">
+  <Nav />
+  <main class="pb-18 pt-8 md:pb-28 md:pt-12">
+    <div class="mx-auto w-[min(1180px,calc(100%-1.5rem))] space-y-8 md:w-[min(1180px,calc(100%-2rem))]">
+      <PageHero eyebrow="Gallery" title="A visual shelf for project imagery, process visuals, and atmospheric detail." description="A curated space for screenshots, diagrams, workspace shots, product surfaces, and the visual mood around the work." />
+      <div class="columns-1 gap-5 space-y-5 md:columns-2 xl:columns-3">
+        {galleryImages.map((image) => (
+          <div class="break-inside-avoid">
+            <GalleryCard image={image} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

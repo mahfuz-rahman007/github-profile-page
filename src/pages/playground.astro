@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import { playgroundItems } from '../data/playground';
+---
+
+<Layout title="Playground — Mahfuzur Rahman" description="Experiments, engineering notes, and useful ideas by Mahfuzur Rahman.">
+  <Nav />
+  <main class="pb-18 pt-8 md:pb-28 md:pt-12">
+    <div class="mx-auto w-[min(1180px,calc(100%-1.5rem))] space-y-8 md:w-[min(1180px,calc(100%-2rem))]">
+      <PageHero eyebrow="Playground" title="Experiments, notes, and useful ideas that don’t fit neatly into a project case study." description="A place for interaction experiments, engineering fragments, system design notes, and product ideas worth revisiting later." />
+      <div class="grid gap-5 md:grid-cols-2">
+        {playgroundItems.map((item) => (
+          <article class="panel card-hover rounded-[30px] p-6 md:p-8">
+            <div class="flex items-center justify-between gap-3">
+              <p class="eyebrow text-xs font-semibold text-brand-aqua/80">{item.type}</p>
+              <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/72">{item.status}</span>
+            </div>
+            <h2 class="mt-4 text-2xl font-semibold text-white">{item.title}</h2>
+            <p class="mt-4 text-sm leading-7 text-brand-muted">{item.description}</p>
+          </article>
+        ))}
+      </div>
+
+      <section class="panel rounded-[32px] p-6 md:p-8">
+        <h2 class="text-2xl font-semibold text-white">Why this page exists</h2>
+        <p class="mt-4 text-base leading-8 text-brand-muted">Good portfolios should be worth revisiting. Playground-style sections give engineer visitors a reason to come back for ideas, experiments, setup thoughts, and small useful things beyond the polished project layer.</p>
+      </section>
+    </div>
+  </main>
+  <Footer />
+</Layout>

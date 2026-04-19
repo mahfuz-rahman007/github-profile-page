@@ -1,0 +1,23 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import PageHero from '../../components/PageHero.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { articles } from '../../data/articles';
+---
+
+<Layout title="Writing — Mahfuzur Rahman" description="Writing and technical notes by Mahfuzur Rahman.">
+  <Nav />
+  <main class="pb-18 pt-8 md:pb-28 md:pt-12">
+    <div class="mx-auto w-[min(980px,calc(100%-1.5rem))] space-y-8 md:w-[min(980px,calc(100%-2rem))]">
+      <PageHero eyebrow="Writing" title="Technical notes on Laravel, search, deployment, and backend behavior." description="Writing is where I turn implementation experience into clearer explanations. It helps me sharpen the work, and it helps other engineers get to the useful parts faster." />
+      <div class="space-y-4">
+        {articles.map((article) => (
+          <ArticleCard article={article} />
+        ))}
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

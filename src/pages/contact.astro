@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import { profile } from '../data/profile';
+---
+
+<Layout title="Contact — Mahfuzur Rahman" description="Contact Mahfuzur Rahman for engineering collaboration or product work.">
+  <Nav />
+  <main class="pb-18 pt-8 md:pb-28 md:pt-12">
+    <div class="mx-auto w-[min(980px,calc(100%-1.5rem))] space-y-8 md:w-[min(980px,calc(100%-2rem))]">
+      <PageHero eyebrow="Contact" title="Let’s talk about useful software." description={profile.availability} center />
+
+      <section class="panel rounded-[36px] p-6 text-center md:p-10">
+        <p class="text-sm uppercase tracking-[0.22em] text-white/45">Best channel</p>
+        <a href={`mailto:${profile.email}`} class="mt-4 inline-block text-2xl font-semibold text-white transition hover:text-brand-aqua md:text-4xl">{profile.email}</a>
+        <p class="mx-auto mt-4 max-w-2xl text-base leading-8 text-brand-muted">For engineering collaboration, product work, or interesting opportunities, email is the cleanest route. If the work needs backend depth and practical frontend delivery, we’ll probably get along.</p>
+        <div class="mt-8 flex justify-center">
+          <SocialLinks links={profile.socialLinks} />
+        </div>
+      </section>
+    </div>
+  </main>
+  <Footer />
+</Layout>
