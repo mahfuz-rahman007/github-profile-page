@@ -1,20 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #050816;
+  --bg: #040611;
+  --bg-2: #070b1c;
+  --bg-3: #0c1228;
   --bg-elevated: rgba(13, 18, 36, 0.82);
   --bg-soft: rgba(20, 28, 56, 0.56);
   --surface: rgba(255, 255, 255, 0.06);
   --surface-strong: rgba(255, 255, 255, 0.1);
   --line: rgba(255, 255, 255, 0.12);
   --text: #f5f7ff;
-  --muted: #aab4d6;
+  --muted: #c2cae6;
   --accent: #7c9cff;
   --accent-2: #6fffe9;
   --accent-3: #ff8fab;
+  --accent-4: #ffd166;
   --glow: 0 0 120px rgba(124, 156, 255, 0.22);
   --shadow-xl: 0 30px 80px rgba(0, 0, 0, 0.38);
-  --radius-xl: 28px;
 }
 
 @theme inline {
@@ -24,6 +26,7 @@
   --color-brand-accent: var(--accent);
   --color-brand-aqua: var(--accent-2);
   --color-brand-pink: var(--accent-3);
+  --color-brand-gold: var(--accent-4);
 }
 
 html {
@@ -34,10 +37,10 @@ body {
   min-height: 100vh;
   color: var(--text);
   background:
-    radial-gradient(circle at 15% 15%, rgba(124, 156, 255, 0.2), transparent 24%),
-    radial-gradient(circle at 80% 18%, rgba(111, 255, 233, 0.12), transparent 18%),
-    radial-gradient(circle at 50% 110%, rgba(255, 143, 171, 0.18), transparent 28%),
-    linear-gradient(180deg, #040612 0%, #06091a 45%, #040611 100%);
+    radial-gradient(circle at 15% 15%, rgba(124, 156, 255, 0.18), transparent 24%),
+    radial-gradient(circle at 78% 12%, rgba(111, 255, 233, 0.1), transparent 18%),
+    radial-gradient(circle at 50% 110%, rgba(255, 143, 171, 0.16), transparent 28%),
+    linear-gradient(180deg, #040612 0%, #050918 40%, #050713 100%);
   font-family: 'Inter', system-ui, sans-serif;
   overflow-x: hidden;
 }
@@ -53,18 +56,18 @@ body::after {
 
 body::before {
   background:
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
   background-size: 56px 56px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.16));
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.14));
 }
 
 body::after {
   background:
-    radial-gradient(circle at 20% 20%, rgba(124, 156, 255, 0.12), transparent 20%),
+    radial-gradient(circle at 20% 18%, rgba(124, 156, 255, 0.14), transparent 20%),
     radial-gradient(circle at 80% 20%, rgba(111, 255, 233, 0.08), transparent 16%),
     radial-gradient(circle at 50% 80%, rgba(255, 143, 171, 0.08), transparent 20%);
-  filter: blur(40px);
+  filter: blur(44px);
   animation: drift 16s ease-in-out infinite alternate;
 }
 
@@ -104,7 +107,7 @@ section {
   position: absolute;
   inset: 0;
   opacity: 0.06;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.6) 0.5px, transparent 0.5px);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.7) 0.45px, transparent 0.45px);
   background-size: 14px 14px;
   mix-blend-mode: soft-light;
   pointer-events: none;
@@ -192,6 +195,157 @@ section {
   background: linear-gradient(180deg, rgba(124,156,255,0), rgba(124,156,255,0.42), rgba(111,255,233,0));
 }
 
+.section-fade {
+  position: relative;
+}
+
+.section-fade::before {
+  content: '';
+  position: absolute;
+  inset: auto 0 100% 0;
+  height: 120px;
+  background: linear-gradient(180deg, transparent, rgba(5, 9, 24, 0.65));
+  pointer-events: none;
+}
+
+.story-rail {
+  position: relative;
+}
+
+.story-rail::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0.18), rgba(255,255,255,0));
+}
+
+.scene-band {
+  position: relative;
+  overflow: hidden;
+}
+
+.scene-band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 50%, rgba(124,156,255,0.18), transparent 24%),
+    radial-gradient(circle at 82% 52%, rgba(111,255,233,0.12), transparent 24%);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.light-path {
+  position: relative;
+}
+
+.light-path::after {
+  content: '';
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(124,156,255,0), rgba(124,156,255,0.46), rgba(111,255,233,0.46), rgba(124,156,255,0));
+}
+
+.metric-glow {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 18px 38px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(255,255,255,0.06);
+}
+
+.route-grid {
+  position: relative;
+  background:
+    linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px),
+    rgba(5, 8, 20, 0.76);
+  background-size: 44px 44px;
+}
+
+.terminal-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(7, 10, 24, 0.92), rgba(4, 6, 18, 0.92));
+}
+
+.terminal-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(124,156,255,0.06), transparent 28%);
+  pointer-events: none;
+}
+
+.marquee-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.marquee-glow::before,
+.marquee-glow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 12%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.marquee-glow::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(4,6,18,1), rgba(4,6,18,0));
+}
+
+.marquee-glow::after {
+  right: 0;
+  background: linear-gradient(270deg, rgba(4,6,18,1), rgba(4,6,18,0));
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+  animation: marquee 22s linear infinite;
+}
+
+.signal-core {
+  position: relative;
+  isolation: isolate;
+}
+
+.signal-core::before,
+.signal-core::after {
+  content: '';
+  position: absolute;
+  inset: 50%;
+  translate: -50% -50%;
+  border-radius: 9999px;
+  border: 1px solid rgba(124, 156, 255, 0.18);
+  pointer-events: none;
+}
+
+.signal-core::before {
+  width: 20rem;
+  height: 20rem;
+  box-shadow: 0 0 80px rgba(124, 156, 255, 0.12);
+  animation: pulseRing 8s ease-in-out infinite;
+}
+
+.signal-core::after {
+  width: 29rem;
+  height: 29rem;
+  border-color: rgba(111, 255, 233, 0.12);
+  animation: pulseRing 10s ease-in-out infinite reverse;
+}
+
+.signal-chip {
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 18px 30px rgba(0,0,0,0.18);
+}
+
 @keyframes drift {
   0% { transform: translate3d(0, 0, 0) scale(1); }
   100% { transform: translate3d(0, -2%, 0) scale(1.04); }
@@ -205,6 +359,16 @@ section {
 @keyframes shine {
   0% { transform: translateX(-220%) rotate(16deg); }
   45%, 100% { transform: translateX(220%) rotate(16deg); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 0.5rem)); }
+}
+
+@keyframes pulseRing {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
+  50% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.45; }
 }
 
 @media (prefers-reduced-motion: reduce) {
